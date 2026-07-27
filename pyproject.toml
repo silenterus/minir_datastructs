@@ -1,0 +1,53 @@
+[project]
+name = "minir_datastructs"
+version = "0.1.0"
+description = ""
+packages = [
+    { include = "minir_datastructs", from = "src" }
+]
+
+authors = [
+    {name = "silenterus",email = "neo-neu@web.de"}
+]
+
+
+
+
+[tool.poetry.dependencies]
+python = "3.11.3"
+pathspec = "0.12.1"
+
+
+
+
+[tool.poetry.group.dev.dependencies]
+
+pytest = "^8.3.0"
+pytest-cov = "^3.0.0"
+mypy = "^1.15.0"
+pyright = "^1.1.370"
+poetry-core = ">=2.0.0,<3.0.0"
+minir_conftest = { path = "../minir_conftest" }
+
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+files = ["src", "tests"]
+
+[tool.pyright]
+include = ["src", "tests"]
+exclude = ["**/__pycache__", ".venv"]
+pythonPlatform = "All"
+typeCheckingMode = "basic"
+reportMissingImports = true
+reportMissingTypeStubs = false
+reportUnusedVariable = true
+reportUnusedImport = true
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
